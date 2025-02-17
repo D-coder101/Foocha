@@ -7,7 +7,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AppLayout from "./ui/AppLayout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import ScrollToTop from "./components/ScrolltoTop";
+import ScrolltoTop from "./components/ScrolltoTop";
 
 // const AppLayout = lazy(() => import("./ui/AppLayout"));
 // const Login = lazy(() => import("./pages/Login"));
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
   {
     element: (
       <>
-        <ScrollToTop />
+        <ScrolltoTop />
         <AppLayout />,
       </>
     ),
