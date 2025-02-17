@@ -61,7 +61,7 @@ export default function Hero() {
           */}
           <div className="h-full bg-blue-500 rounded-[56%_44%_72%_28%_/_52%_100%_0%_48%] md:w-4/5 mx-auto flex justify-center items-end">
             <img
-              src="../../public/hero.png"
+              src="/hero.png"
               alt="order"
               className="object-cover h-6/7 absolute"
             />

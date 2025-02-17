@@ -45,7 +45,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <ScrolltoTop />
-        <AppLayout />,
+        <AppLayout />
       </>
     ),
     children: [
@@ -66,7 +66,8 @@ const router = createBrowserRouter([
         element: <Checkout />,
         children: [
           {
-            path: "/checkout",
+            // path: "/checkout",
+            index: true,
             element: <CheckoutDetails />,
           },
           // {
@@ -91,6 +92,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
+
       <RouterProvider router={router} />
     </QueryClientProvider>
   );
