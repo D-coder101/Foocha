@@ -56,7 +56,7 @@ export default function SignupForm() {
                 placeholder="Confirm your password"
               />
             </div>
-            <Button type="primary" fullWidth disabled={isSubmitting}>
+            <Button buttonType="primary" fullWidth disabled={isSubmitting}>
               <span className="flex items-center">
                 {isSubmitting ? (
                   <ClipLoader color="white" size={20} />

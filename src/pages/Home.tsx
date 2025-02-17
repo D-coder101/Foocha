@@ -5,12 +5,12 @@ import Service from "../components/Service";
 import NewsLetter from "../components/NewsLetter";
 import SpinnerFullPage from "../components/SpinnerFullPage";
 // const Menu = lazy(() => import("../components/Menu"));
-const Menu = lazy(
-  () =>
-    new Promise((resolve) =>
-      setTimeout(() => resolve(import("../components/Menu")), 1000)
-    )
-);
+const loadComponent = async () => {
+  await new Promise((res) => setTimeout(res, 1000));
+  return import("../components/Menu");
+};
+
+const Menu = lazy(() => loadComponent());
 
 export default function Home() {
   return (
