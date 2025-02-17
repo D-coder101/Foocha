@@ -34,7 +34,7 @@ const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 0,
+      staleTime: 60 * 1000,
     },
   },
 });
@@ -97,10 +97,8 @@ const router = createBrowserRouter([
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-      {/* <Suspense fallback={<SpinnerFullPage />}> */}
+      <ReactQueryDevtools initialIsOpen={false} />
       <RouterProvider router={router} />
-      {/* </Suspense> */}
     </QueryClientProvider>
   );
 }

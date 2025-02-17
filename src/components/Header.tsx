@@ -1,6 +1,6 @@
 // import { FcInTransit } from "react-icons/fc";
 import { IoPersonOutline } from "react-icons/io5";
-import { IoIosArrowDown } from "react-icons/io";
+// import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";

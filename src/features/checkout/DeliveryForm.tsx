@@ -1,13 +1,14 @@
+import { useState } from "react";
 import { Form, Formik, FormikHelpers } from "formik";
 // import { useNavigate } from "react-router-dom";
 import { customerDetailsSchema } from "../../schemas/CustomerDetailsSchema";
+import { ClipLoader } from "react-spinners";
+
 import CustomInput from "../../ui/CustomInput";
 import CustomSelect from "../../ui/CustomSelect";
-import { useQuery } from "@tanstack/react-query";
-import { fetchLgas, fetchStates } from "../../services/apiCountries";
-import { useState } from "react";
 import Button from "../../ui/Button";
-import { ClipLoader } from "react-spinners";
+import useStates from "../../hooks/useStates";
+import useLgas from "../../hooks/useLgas";
 
 interface CustomerDetailsValues {
   firstName: string;
@@ -22,18 +23,11 @@ interface CustomerDetailsValues {
 
 export default function DeliveryForm() {
   // const navigate = useNavigate();
-
-  const { data: states } = useQuery({
-    queryKey: ["states"],
-    queryFn: fetchStates,
-  });
-
   const [selectedState, setSelectedState] = useState<string | null>(null);
-  const { data: lgas, isLoading: loadingLgas } = useQuery({
-    queryKey: ["lgas", selectedState],
-    queryFn: () => fetchLgas(selectedState!),
-    enabled: !!selectedState,
-  });
+
+  const { isLoading, states } = useStates();
+  const { loadingLgas, lgas } = useLgas(selectedState);
+
   // console.log(lgas);
 
   const onSubmit = async (
@@ -123,7 +117,7 @@ export default function DeliveryForm() {
               textColor="text-gray-600"
               // padding="py-3 px-3"
               border="border-gray-300"
-              placeholder="Select state..."
+              placeholder={isLoading ? "Loading..." : "Select state..."}
               options={
                 states?.map((state: { name: string }) => ({
                   value: state.name,
@@ -136,6 +130,7 @@ export default function DeliveryForm() {
                 setSelectedState(state); // Trigger LGA fetch
                 setFieldValue("lga", ""); // Reset LGA selection
               }}
+              disabled={isLoading}
             />
             <CustomSelect
               label="LGA"
@@ -143,7 +138,7 @@ export default function DeliveryForm() {
               textColor="text-gray-600"
               //   padding="py-3 px-3"
               border="border-gray-300"
-              placeholder="Select lga..."
+              placeholder={loadingLgas ? "Loading..." : "Select lgas..."}
               options={
                 lgas?.map((lga: string) => ({
                   value: lga,

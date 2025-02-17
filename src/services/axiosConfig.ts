@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "https://countriesnow.space/api/v0.1/countries",
+  baseURL: "",
   headers: {
     "Content-Type": "application/json",
   },
