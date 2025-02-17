@@ -20,10 +20,10 @@ CustomRatingProps) {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
 
-  function handleRating(rating: number) {
-    // setRating(rating);
-    // onSetRating(rating);
-  }
+  // function handleRating(rating: number) {
+  // setRating(rating);
+  // onSetRating(rating);
+  // }
 
   const textStyle = {
     lineHeight: "1",
@@ -38,7 +38,7 @@ CustomRatingProps) {
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
             key={i}
-            onRate={() => handleRating(i + 1)}
+            // onRate={() => handleRating(i + 1)}
             full={tempRating ? tempRating >= i + 1 : rating >= i + 1}
             onHoverIn={() => setTempRating(i + 1)}
             onHoverOut={() => setTempRating(0)}
@@ -48,7 +48,7 @@ CustomRatingProps) {
         ))}
       </div>
       <p style={textStyle} className="hidden">
-        {/* (150k reviews) */}
+        {/* (150k s) */}
         {tempRating || rating || ""}
       </p>
     </div>
@@ -59,14 +59,14 @@ export default CustomRating;
 
 interface StarProps {
   color: string;
-  onRate: () => void;
+  onRate?: () => void;
   full: boolean;
-  onHoverIn: () => void;
-  onHoverOut: () => void;
+  onHoverIn?: () => void;
+  onHoverOut?: () => void;
   size: number;
 }
 
-function Star({ color, onRate, full, onHoverIn, onHoverOut, size }: StarProps) {
+function Star({ color, onRate, full, size }: StarProps) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
