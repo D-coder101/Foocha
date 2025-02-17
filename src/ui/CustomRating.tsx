@@ -17,7 +17,7 @@ function CustomRating({
   defaultRating = 3,
 }: // onSetRating,
 CustomRatingProps) {
-  const [rating, setRating] = useState(defaultRating);
+  const [rating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
 
   // function handleRating(rating: number) {

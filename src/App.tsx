@@ -8,13 +8,6 @@ import AppLayout from "./ui/AppLayout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ScrollToTop from "./components/ScrolltoTop";
-// import Home from "./pages/Home";
-// import Menu from "./pages/Menu";
-// import Cart from "./pages/Cart";
-// import Checkout from "./features/checkout/Checkout";
-// import CheckoutDetails from "./features/checkout/CheckoutDetails";
-// import OrderConfirmation from "./features/checkout/OrderConfirmation";
-// import PageNotFound from "./pages/PageNotFound";
 
 // const AppLayout = lazy(() => import("./ui/AppLayout"));
 // const Login = lazy(() => import("./pages/Login"));
